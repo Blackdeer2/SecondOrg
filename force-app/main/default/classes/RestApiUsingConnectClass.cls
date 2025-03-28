@@ -34,6 +34,7 @@ global class RestApiUsingConnectClass {
         try {
             String body = RestContext.request.requestBody.toString();
             List<Account> accList = (List<Account>) JSON.deserialize(body, List<Account>.class);
+            System.debug(accList);
             
             upsert accList External_Id__c;
             
