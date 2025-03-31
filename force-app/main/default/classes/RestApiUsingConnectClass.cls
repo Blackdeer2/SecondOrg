@@ -27,21 +27,5 @@ global class RestApiUsingConnectClass {
         } catch (Exception e) {
             return null;
         }
-    }
-    
-    @HttpPut
-    global static String updateAccount() {
-        try {
-            String body = RestContext.request.requestBody.toString();
-            List<Account> accList = (List<Account>) JSON.deserialize(body, List<Account>.class);
-            System.debug(accList);
-            
-            upsert accList External_Id__c;
-            
-            return 'Accounts successfully synced';
-        } catch (Exception e) {
-            return 'Error: ' + e.getMessage();
-        }
-    }
-   
+    }   
 }
